@@ -1,0 +1,13 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.saltatorv</groupId>
+        <artifactId>notification-manager</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>notification-manager-domain</artifactId>
+    <packaging>jar</packaging>
+
+</project>
