@@ -1,0 +1,30 @@
+{
+  "type": "record",
+  "name": "SendEmailNotificationCommand",
+  "namespace": "com.saltatorv.notification.manager.avro",
+  "doc": "",
+  "fields": [
+    {
+      "name": "metadata",
+      "type": "common.Metadata"
+    },
+    {
+      "name": "userId",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Unique identifier of the user within the system."
+    },
+    {
+      "name": "message",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Message content to be delivered",
+      "minLength": 2,
+      "maxLength": 512
+    }
+  ]
+}
