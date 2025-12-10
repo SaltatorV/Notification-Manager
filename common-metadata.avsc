@@ -1,0 +1,50 @@
+{
+  "type": "record",
+  "name": "Metadata",
+  "namespace": "common",
+  "fields": [
+    {
+      "name": "correlationId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "logicalType": "uuid",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "Unique correlation ID (UUID v4)",
+      "minLength": 36,
+      "maxLength": 36
+    },
+    {
+      "name": "traceId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid",
+        "avro.java.string": "String"
+      },
+      "doc": "Unique trace ID (UUID v4)",
+      "minLength": 36,
+      "maxLength": 36
+    },
+    {
+      "name": "notificationId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid",
+        "avro.java.string": "String"
+      },
+      "doc": "Unique notification ID (UUID v4)",
+      "minLength": 36,
+      "maxLength": 36
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "doc": "Timestamp of object creation",
+      "minLength": 36,
+      "maxLength": 36
+    }
+  ]
+}
