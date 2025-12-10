@@ -1,0 +1,38 @@
+{
+  "type": "record",
+  "name": "SendEmailNotificationCommand",
+  "namespace": "com.saltatorv.notification.manager.avro",
+  "doc": "",
+  "fields": [
+    {
+      "name": "metadata",
+      "type": "common.Metadata"
+    },
+    {
+      "name": "recipient",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Recipient email address."
+    },
+    {
+      "name": "subject",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Email subject."
+    },
+    {
+      "name": "message",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Message content to be delivered",
+      "minLength": 2,
+      "maxLength": 320
+    }
+  ]
+}
