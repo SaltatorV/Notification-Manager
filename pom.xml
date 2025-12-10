@@ -33,6 +33,7 @@
         <module>notification-manager-domain</module>
         <module>notification-manager-service</module>
         <module>notification-manager-application</module>
+        <module>notification-manager-infrastructure</module>
     </modules>
 
     <properties>
@@ -67,6 +68,11 @@
             <dependency>
                 <groupId>com.saltatorv</groupId>
                 <artifactId>notification-manager-application</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.saltatorv</groupId>
+                <artifactId>notification-manager-infrastructure</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>
