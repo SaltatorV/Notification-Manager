@@ -1,0 +1,32 @@
+{
+  "type": "record",
+  "name": "SendSMSNotificationCommand",
+  "namespace": "com.saltatorv.notification.manager.avro",
+  "doc": "",
+  "fields": [
+    {
+      "name": "metadata",
+      "type": "common.Metadata"
+    },
+    {
+      "name": "recipient",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Recipient phone in E.164 format (e.g. +48123123123). Use E.164 for unambiguous international routing.",
+      "minLength": 10,
+      "maxLength": 16
+    },
+    {
+      "name": "message",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      },
+      "doc": "Message content to be delivered",
+      "minLength": 2,
+      "maxLength": 160
+    }
+  ]
+}
