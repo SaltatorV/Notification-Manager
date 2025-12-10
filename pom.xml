@@ -39,6 +39,12 @@
 
     <properties>
         <java.version>17</java.version>
+
+        <notification-manager-domain.version>0.0.1-SNAPSHOT</notification-manager-domain.version>
+        <notification-manager-service.version>0.0.1-SNAPSHOT</notification-manager-service.version>
+        <notification-manager-application.version>0.0.1-SNAPSHOT</notification-manager-application.version>
+        <notification-manager-infrastructure.version>0.0.1-SNAPSHOT</notification-manager-infrastructure.version>
+
     </properties>
 
     <dependencies>
@@ -59,22 +65,22 @@
             <dependency>
                 <groupId>com.saltatorv</groupId>
                 <artifactId>notification-manager-domain</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${notification-manager-domain.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.saltatorv</groupId>
                 <artifactId>notification-manager-service</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${notification-manager-service.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.saltatorv</groupId>
                 <artifactId>notification-manager-application</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${notification-manager-application.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.saltatorv</groupId>
                 <artifactId>notification-manager-infrastructure</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${notification-manager-infrastructure.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
