@@ -34,6 +34,7 @@
         <module>notification-manager-service</module>
         <module>notification-manager-application</module>
         <module>notification-manager-infrastructure</module>
+        <module>notification-manager-container</module>
     </modules>
 
     <properties>
