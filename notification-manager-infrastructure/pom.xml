@@ -11,4 +11,29 @@
     <packaging>jar</packaging>
 
     <name>notification-manager-infrastructure</name>
+
+    <dependencies>
+        <!-- AVRO -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro-compiler</artifactId>
+        </dependency>
+
+
+        <!-- JAKARTA -->
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- AVRO -->
+            <plugin>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -37,12 +37,20 @@
     </modules>
 
     <properties>
+        <!-- CORE -->
         <java.version>17</java.version>
 
+        <!-- NOTIFICATION-MANAGER -->
         <notification-manager-domain.version>0.0.1-SNAPSHOT</notification-manager-domain.version>
         <notification-manager-application.version>0.0.1-SNAPSHOT</notification-manager-application.version>
         <notification-manager-infrastructure.version>0.0.1-SNAPSHOT</notification-manager-infrastructure.version>
 
+        <!-- AVRO -->
+        <avro-compiler.version>1.12.1</avro-compiler.version>
+        <avro-maven-plugin.version>1.12.1</avro-maven-plugin.version>
+
+        <!-- JAKARTA -->
+        <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
     </properties>
 
     <dependencies>
@@ -50,6 +58,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- SPRING -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
@@ -60,6 +69,7 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- NOTIFICATION-MANAGER -->
             <dependency>
                 <groupId>com.saltatorv</groupId>
                 <artifactId>notification-manager-domain</artifactId>
@@ -75,7 +85,35 @@
                 <artifactId>notification-manager-infrastructure</artifactId>
                 <version>${notification-manager-infrastructure.version}</version>
             </dependency>
+
+            <!-- AVRO -->
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-compiler</artifactId>
+                <version>${avro-compiler.version}</version>
+            </dependency>
+
+
+            <!-- JAKARTA -->
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>${jakarta.annotation-api.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- AVRO -->
+                <plugin>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>avro-maven-plugin</artifactId>
+                    <version>${avro-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>
