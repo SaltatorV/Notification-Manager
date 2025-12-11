@@ -11,11 +11,4 @@
     <packaging>jar</packaging>
 
     <name>notification-manager-application</name>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.saltatorv</groupId>
-            <artifactId>notification-manager-service</artifactId>
-        </dependency>
-    </dependencies>
 </project>
