@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "SendEmailNotificationCommand",
+  "name": "SendSystemNotificationCommand",
   "namespace": "com.saltatorv.notification.manager.avro",
   "doc": "",
   "fields": [
