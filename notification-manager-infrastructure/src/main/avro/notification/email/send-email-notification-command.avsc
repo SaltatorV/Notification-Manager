@@ -1,12 +1,12 @@
 {
   "type": "record",
   "name": "SendEmailNotificationCommand",
-  "namespace": "com.saltatorv.notification.manager.avro",
+  "namespace": "com.saltatorv.notification.manager.infrastructure.avro.notification.email",
   "doc": "",
   "fields": [
     {
       "name": "metadata",
-      "type": "common.Metadata"
+      "type": "com.saltatorv.notification.manager.infrastructure.avro.shared.CommonMetadata"
     },
     {
       "name": "recipient",

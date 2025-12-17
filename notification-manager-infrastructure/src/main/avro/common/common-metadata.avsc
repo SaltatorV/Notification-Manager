@@ -1,7 +1,7 @@
 {
   "type": "record",
-  "name": "Metadata",
-  "namespace": "common",
+  "name": "CommonMetadata",
+  "namespace": "com.saltatorv.notification.manager.infrastructure.avro.shared",
   "fields": [
     {
       "name": "correlationId",
