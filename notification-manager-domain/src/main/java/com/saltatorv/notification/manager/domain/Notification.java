@@ -1,21 +1,20 @@
 package com.saltatorv.notification.manager.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 class Notification {
-    private final List<String> messages;
+    private final String message;
 
-    public Notification() {
-        messages = new ArrayList<>();
+    private boolean isSent;
+
+    public Notification(String message) {
+        this.message = message;
+        this.isSent = false;
     }
 
-    public void send(String notificationMessage) {
-        messages.add(notificationMessage);
+    public void send() {
+        this.isSent = true;
     }
 
-    public List<String> getMessages() {
-        return Collections.unmodifiableList(messages);
+    public boolean isSent() {
+        return isSent;
     }
 }

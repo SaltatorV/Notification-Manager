@@ -11,25 +11,24 @@ class NotificationTest {
     @Test
     public void testShouldSendNotification() {
         // given
-        var message = "example message";
-        createNotification();
+        createNotification("example message");
 
         // when
-        sendNotification(message);
+        sendNotification();
 
         // then
-        assertMessageIsSent(message);
+        assertMessageIsSent();
     }
 
-    private void assertMessageIsSent(String message) {
-        assertTrue(notification.getMessages().contains(message));
+    private void assertMessageIsSent() {
+        assertTrue(notification.isSent());
     }
 
-    private void sendNotification(String notificationMessage) {
-        notification.send(notificationMessage);
+    private void sendNotification() {
+        notification.send();
     }
 
-    private void createNotification() {
-        notification = new Notification();
+    private void createNotification(String message) {
+        notification = new Notification(message);
     }
 }
