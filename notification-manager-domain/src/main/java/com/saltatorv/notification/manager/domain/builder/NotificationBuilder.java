@@ -14,7 +14,7 @@ public class NotificationBuilder implements NotificationChannelStep {
 
     }
 
-    private static NotificationBuilder buildNotification() {
+    public static NotificationBuilder buildNotification() {
         return new NotificationBuilder();
     }
 
