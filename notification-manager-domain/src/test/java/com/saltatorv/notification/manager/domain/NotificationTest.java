@@ -11,7 +11,21 @@ class NotificationTest {
     @Test
     public void testShouldSendNotification() {
         // given
-        createNotification("example message");
+        createNotification()
+                .forChanel("SMS")
+                .recipient("+48123456789")
+                .message("Sample message");
+
+        createNotification()
+                .forChannel("EMAIL")
+                .recipient("example@example.com")
+                .subject("Test")
+                .body("Test body");
+
+        createNotification()
+                .forChannel("SYSTEM")
+                .message("Sample message")
+                .recipient("example@example.com");
 
         // when
         sendNotification();
