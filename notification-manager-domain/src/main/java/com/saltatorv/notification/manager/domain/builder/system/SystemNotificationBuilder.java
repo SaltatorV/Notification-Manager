@@ -1,7 +1,7 @@
-package com.saltatorv.notification.manager.domain.builder.steps.system;
+package com.saltatorv.notification.manager.domain.builder.system;
 
 import com.saltatorv.notification.manager.domain.Notification;
-import com.saltatorv.notification.manager.domain.builder.steps.shared.NotificationFinalStep;
+import com.saltatorv.notification.manager.domain.builder.shared.NotificationFinalStep;
 
 public class SystemNotificationBuilder implements SystemNotificationRecipientStep, SystemNotificationMessageStep, NotificationFinalStep {
     private String recipient;

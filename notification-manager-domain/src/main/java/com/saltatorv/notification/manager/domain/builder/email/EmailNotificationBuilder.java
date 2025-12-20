@@ -1,7 +1,7 @@
-package com.saltatorv.notification.manager.domain.builder.steps.email;
+package com.saltatorv.notification.manager.domain.builder.email;
 
 import com.saltatorv.notification.manager.domain.Notification;
-import com.saltatorv.notification.manager.domain.builder.steps.shared.NotificationFinalStep;
+import com.saltatorv.notification.manager.domain.builder.shared.NotificationFinalStep;
 
 public class EmailNotificationBuilder implements EmailNotificationRecipientStep, EmailNotificationSubjectStep, EmailNotificationBodyStep, NotificationFinalStep {
 

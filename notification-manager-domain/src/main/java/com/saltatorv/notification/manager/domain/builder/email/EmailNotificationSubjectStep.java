@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain.builder.steps.email;
+package com.saltatorv.notification.manager.domain.builder.email;
 
 public interface EmailNotificationSubjectStep {
 
