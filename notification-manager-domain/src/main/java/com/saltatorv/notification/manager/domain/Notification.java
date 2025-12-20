@@ -1,6 +1,6 @@
 package com.saltatorv.notification.manager.domain;
 
-class Notification {
+public class Notification {
     private final NotificationId id;
     private final String message;
 
