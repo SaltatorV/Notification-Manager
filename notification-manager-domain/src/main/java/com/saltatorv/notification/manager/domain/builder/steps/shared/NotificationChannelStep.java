@@ -2,7 +2,7 @@ package com.saltatorv.notification.manager.domain.builder.steps.shared;
 
 import com.saltatorv.notification.manager.domain.builder.steps.email.EmailNotificationRecipientStep;
 import com.saltatorv.notification.manager.domain.builder.steps.sms.SMSNotificationRecipientStep;
-import com.saltatorv.notification.manager.domain.builder.steps.system.SystemNotificationStep;
+import com.saltatorv.notification.manager.domain.builder.steps.system.SystemNotificationRecipientStep;
 
 public interface NotificationChannelStep {
 
@@ -10,6 +10,6 @@ public interface NotificationChannelStep {
 
     EmailNotificationRecipientStep forMail();
 
-    SystemNotificationStep forSystem();
+    SystemNotificationRecipientStep forSystem();
 
 }
