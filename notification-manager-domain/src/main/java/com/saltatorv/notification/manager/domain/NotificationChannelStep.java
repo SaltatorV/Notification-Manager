@@ -2,7 +2,7 @@ package com.saltatorv.notification.manager.domain;
 
 public interface NotificationChannelStep {
 
-    SMSNotificationStep forSms();
+    SMSNotificationRecipientStep forSms();
 
     EmailNotificationStep forMail();
 
