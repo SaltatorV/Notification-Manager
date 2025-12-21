@@ -1,6 +1,6 @@
 package com.saltatorv.notification.manager.domain;
 
-abstract class Channel {
+public abstract class Channel {
 
     abstract void send();
 }

@@ -2,7 +2,7 @@ package com.saltatorv.notification.manager.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static com.saltatorv.notification.manager.domain.builder.NotificationBuilder.buildNotification;
+import static com.saltatorv.notification.manager.domain.NotificationBuilder.buildNotification;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NotificationTest {

@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain.builder.shared;
+package com.saltatorv.notification.manager.domain.shared;
 
 import com.saltatorv.notification.manager.domain.Notification;
 

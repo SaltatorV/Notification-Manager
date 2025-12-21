@@ -1,7 +1,7 @@
-package com.saltatorv.notification.manager.domain.builder.sms;
+package com.saltatorv.notification.manager.domain.sms;
 
 import com.saltatorv.notification.manager.domain.Notification;
-import com.saltatorv.notification.manager.domain.builder.shared.NotificationFinalStep;
+import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
 public class SMSNotificationBuilder implements SMSNotificationRecipientStep, SMSNotificationTextMessageStep, NotificationFinalStep {
 

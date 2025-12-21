@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain.builder.sms;
+package com.saltatorv.notification.manager.domain.sms;
 
 public interface SMSNotificationRecipientStep {
 

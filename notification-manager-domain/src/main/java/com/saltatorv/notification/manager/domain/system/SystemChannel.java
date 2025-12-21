@@ -1,6 +1,8 @@
-package com.saltatorv.notification.manager.domain;
+package com.saltatorv.notification.manager.domain.system;
 
-class SystemChannel extends Channel {
+import com.saltatorv.notification.manager.domain.Channel;
+
+public class SystemChannel extends Channel {
     private final String recipient;
     private final String message;
 
