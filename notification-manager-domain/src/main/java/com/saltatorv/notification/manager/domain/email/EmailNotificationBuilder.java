@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain.email;
 
+import com.saltatorv.notification.manager.domain.Channel;
 import com.saltatorv.notification.manager.domain.Notification;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
@@ -29,7 +30,8 @@ public class EmailNotificationBuilder implements EmailNotificationRecipientStep,
 
     @Override
     public Notification create() {
-        return new Notification(this.body);
+        Channel channel = new EmailChannel(recipient, subject, body);
+        return new Notification(channel);
     }
 
 

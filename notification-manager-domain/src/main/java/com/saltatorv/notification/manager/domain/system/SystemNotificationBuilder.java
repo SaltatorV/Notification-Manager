@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain.system;
 
+import com.saltatorv.notification.manager.domain.Channel;
 import com.saltatorv.notification.manager.domain.Notification;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
@@ -21,6 +22,8 @@ public class SystemNotificationBuilder implements SystemNotificationRecipientSte
 
     @Override
     public Notification create() {
-        return new Notification(this.message);
+
+        Channel channel = new SystemChannel(recipient, message);
+        return new Notification(channel);
     }
 }

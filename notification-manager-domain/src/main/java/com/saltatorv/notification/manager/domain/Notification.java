@@ -2,18 +2,19 @@ package com.saltatorv.notification.manager.domain;
 
 public class Notification {
     private final NotificationId id;
-    private final String message;
+    private final Channel channel;
 
     private boolean isSent;
 
-    public Notification(String message) {
+    public Notification(Channel channel) {
         this.id = NotificationId.generate();
-        this.message = message;
+        this.channel = channel;
 
         this.isSent = false;
     }
 
     public void send() {
+        channel.send();
         this.isSent = true;
     }
 

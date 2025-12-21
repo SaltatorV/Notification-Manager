@@ -65,8 +65,4 @@ class NotificationTest {
     private void sendNotification() {
         notification.send();
     }
-
-    private void createNotification(String message) {
-        notification = new Notification(message);
-    }
 }

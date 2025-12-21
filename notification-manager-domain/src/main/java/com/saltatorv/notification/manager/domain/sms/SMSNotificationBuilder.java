@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain.sms;
 
+import com.saltatorv.notification.manager.domain.Channel;
 import com.saltatorv.notification.manager.domain.Notification;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
@@ -22,6 +23,7 @@ public class SMSNotificationBuilder implements SMSNotificationRecipientStep, SMS
 
     @Override
     public Notification create() {
-        return new Notification(this.message);
+        Channel channel = new SMSChannel(recipient, message);
+        return new Notification(channel);
     }
 }
