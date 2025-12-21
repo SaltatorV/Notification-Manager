@@ -12,7 +12,7 @@ public class SMSChannel extends Channel {
     }
 
     @Override
-    void send() {
+    public void send() {
         System.out.println("Sending SMS to " + recipient + ": " + message);
     }
 }

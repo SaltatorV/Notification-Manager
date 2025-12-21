@@ -14,7 +14,7 @@ public class EmailChannel extends Channel {
     }
 
     @Override
-    void send() {
+    public void send() {
         System.out.println("Sending Email to " + recipient + ": " + subject + ": " + body);
     }
 }

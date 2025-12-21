@@ -12,7 +12,7 @@ public class SystemChannel extends Channel {
     }
 
     @Override
-    void send() {
+    public void send() {
         System.out.println("Sending System notification to " + recipient + ": " + message);
     }
 }
