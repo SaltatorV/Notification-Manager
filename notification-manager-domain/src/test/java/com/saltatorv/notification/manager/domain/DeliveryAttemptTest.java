@@ -2,8 +2,7 @@ package com.saltatorv.notification.manager.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class DeliveryAttemptTest {
 
@@ -24,7 +23,7 @@ class DeliveryAttemptTest {
     @Test
     public void testDeliveryAttemptHasNotRemainingSendAttempts() {
         // given
-        createDeliveryAttempt(0);
+        createDeliveryAttempt(1);
 
         //when
         sendAttempt();
@@ -33,6 +32,18 @@ class DeliveryAttemptTest {
         assertHasNotRemainingSendAttempts();
     }
 
+    @Test
+    public void testDeliveryAttemptShouldNotSendAttemptIfHasNotRemainingSendAttempts() {
+        // given
+        createDeliveryAttempt(1);
+        sendAttempt();
+
+        //when
+        assertThrows(RuntimeException.class, () -> sendAttempt());
+
+        //then
+        assertHasNotRemainingSendAttempts();
+    }
 
 
     private void createDeliveryAttempt(int maxAttemptsCounter) {

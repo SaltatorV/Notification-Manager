@@ -10,7 +10,12 @@ class DeliveryAttempt {
     }
 
     public void sendAttempt() {
-        this.attempts++;
+        if(hasRemainingSendAttempts()) {
+            this.attempts += 1;
+        }
+        else {
+            throw new RuntimeException("Maximum number of attempts reached. Can not send this attempt.");
+        }
     }
 
     public boolean hasRemainingSendAttempts() {
