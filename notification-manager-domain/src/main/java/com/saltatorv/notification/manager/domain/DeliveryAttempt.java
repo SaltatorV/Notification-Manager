@@ -1,6 +1,6 @@
 package com.saltatorv.notification.manager.domain;
 
-class DeliveryAttempt {
+public class DeliveryAttempt {
     private static final int MIN_ATTEMPTS_TO_SEND = 1;
     private static final int DEFAULT_ATTEMPTS_VALUE = 0;
 

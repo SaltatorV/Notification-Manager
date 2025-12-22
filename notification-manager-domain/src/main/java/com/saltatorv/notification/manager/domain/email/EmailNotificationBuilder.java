@@ -1,14 +1,17 @@
 package com.saltatorv.notification.manager.domain.email;
 
 import com.saltatorv.notification.manager.domain.Channel;
+import com.saltatorv.notification.manager.domain.DeliveryAttempt;
 import com.saltatorv.notification.manager.domain.Notification;
+import com.saltatorv.notification.manager.domain.shared.NotificationDeliveryAttemptStep;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
-public class EmailNotificationBuilder implements EmailNotificationRecipientStep, EmailNotificationSubjectStep, EmailNotificationBodyStep, NotificationFinalStep {
+public class EmailNotificationBuilder implements EmailNotificationRecipientStep, EmailNotificationSubjectStep, EmailNotificationBodyStep, NotificationDeliveryAttemptStep, NotificationFinalStep {
 
     private String recipient;
     private String subject;
     private String body;
+    private int maxAttemptsCounter;
 
     @Override
     public EmailNotificationSubjectStep recipient(String recipient) {
@@ -23,15 +26,21 @@ public class EmailNotificationBuilder implements EmailNotificationRecipientStep,
     }
 
     @Override
-    public NotificationFinalStep body(String body) {
+    public NotificationDeliveryAttemptStep body(String body) {
         this.body = body;
+        return this;
+    }
+
+    @Override
+    public NotificationFinalStep maxDeliveryAttempts(int maxAttemptsCounter) {
+        this.maxAttemptsCounter = maxAttemptsCounter;
         return this;
     }
 
     @Override
     public Notification create() {
         Channel channel = new EmailChannel(recipient, subject, body);
-        return new Notification(channel);
+        return new Notification(channel, new DeliveryAttempt(maxAttemptsCounter));
     }
 
 
