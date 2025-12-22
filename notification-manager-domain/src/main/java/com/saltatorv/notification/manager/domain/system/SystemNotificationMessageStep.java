@@ -1,8 +1,8 @@
 package com.saltatorv.notification.manager.domain.system;
 
-import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
+import com.saltatorv.notification.manager.domain.shared.NotificationDeliveryAttemptStep;
 
 public interface SystemNotificationMessageStep {
 
-    NotificationFinalStep message(String message);
+    NotificationDeliveryAttemptStep message(String message);
 }
