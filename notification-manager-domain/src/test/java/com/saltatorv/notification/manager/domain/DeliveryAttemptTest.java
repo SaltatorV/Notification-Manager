@@ -10,7 +10,7 @@ class DeliveryAttemptTest {
     DeliveryAttempt attempt;
 
     @Test
-    public void testAttemptShouldBeAbleToSendAttempt() {
+    public void testDeliveryAttemptHasRemainingSendAttempts() {
         // given
         createDeliveryAttempt(3);
 
@@ -22,7 +22,7 @@ class DeliveryAttemptTest {
     }
 
     @Test
-    public void testAttemptShouldNotBeAbleToSendAttempt() {
+    public void testDeliveryAttemptHasNotRemainingSendAttempts() {
         // given
         createDeliveryAttempt(0);
 
