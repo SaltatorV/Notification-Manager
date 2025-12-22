@@ -5,6 +5,9 @@ class DeliveryAttempt {
     private int attempts;
 
     public DeliveryAttempt(int maxAttemptsCounter) {
+        if(maxAttemptsCounter < 1) {
+            throw new RuntimeException("Max attempts counter must be positive number");
+        }
         this.maxAttemptsCounter = maxAttemptsCounter;
         this.attempts = 0;
     }

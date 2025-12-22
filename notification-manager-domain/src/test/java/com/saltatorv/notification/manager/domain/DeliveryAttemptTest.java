@@ -21,6 +21,33 @@ class DeliveryAttemptTest {
     }
 
     @Test
+    public void testDeliveryAttemptShouldSentAttemptMultipleTimes() {
+        // given
+        createDeliveryAttempt(3);
+
+        //when
+        sendAttempt();
+        sendAttempt();
+
+        //then
+        assertHasRemainingSendAttempts();
+    }
+
+    @Test
+    public void testDeliveryAttemptShouldReachMaximumAfterSentAttemptMultipleTimes() {
+        // given
+        createDeliveryAttempt(3);
+
+        //when
+        sendAttempt();
+        sendAttempt();
+        sendAttempt();
+
+        //then
+        assertHasNotRemainingSendAttempts();
+    }
+
+    @Test
     public void testDeliveryAttemptHasNotRemainingSendAttempts() {
         // given
         createDeliveryAttempt(1);
@@ -43,6 +70,28 @@ class DeliveryAttemptTest {
 
         //then
         assertHasNotRemainingSendAttempts();
+    }
+
+    @Test
+    public void testCannotCreateDeliveryAttemptWithNegativeMaxAttemptsCounter() {
+        //given
+
+        //when
+        assertThrows(RuntimeException.class, () -> createDeliveryAttempt(-1));
+
+        //then
+        assertNull(attempt);
+    }
+
+    @Test
+    public void testCannotCreateDeliveryAttemptWithZeroAsMaxAttemptsCounter() {
+        //given
+
+        //when
+        assertThrows(RuntimeException.class, () -> createDeliveryAttempt(0));
+
+        //then
+        assertNull(attempt);
     }
 
 
