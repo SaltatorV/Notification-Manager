@@ -39,7 +39,7 @@ class DeliveryAttemptTest {
         sendAttempt();
 
         //when
-        assertThrows(RuntimeException.class, () -> sendAttempt());
+        assertThrows(RuntimeException.class, this::sendAttempt);
 
         //then
         assertHasNotRemainingSendAttempts();
