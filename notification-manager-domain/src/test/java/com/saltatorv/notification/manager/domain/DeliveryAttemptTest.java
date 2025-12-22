@@ -10,7 +10,7 @@ class DeliveryAttemptTest {
     DeliveryAttempt attempt;
 
     @Test
-    public void testAttemptShouldBeAbleToBla() {
+    public void testAttemptShouldBeAbleToSendAttempt() {
         // given
         createDeliveryAttempt(3);
 
@@ -22,7 +22,7 @@ class DeliveryAttemptTest {
     }
 
     @Test
-    public void testAttemptShouldNotBeAbleToBla() {
+    public void testAttemptShouldNotBeAbleToSendAttempt() {
         // given
         createDeliveryAttempt(0);
 
