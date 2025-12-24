@@ -7,7 +7,7 @@ public class DeliveryAttempt {
     private static final int MIN_ATTEMPTS_TO_SEND = 1;
 
     private final int maxAttemptsCounter;
-    private Set<AttemptResult> attemptResults;
+    private final Set<AttemptResult> attemptResults;
 
     public DeliveryAttempt(int maxAttemptsCounter) {
         if (maxAttemptsCounter < MIN_ATTEMPTS_TO_SEND) {
