@@ -44,7 +44,7 @@ public class AttemptResult {
         if (o == null || getClass() != o.getClass()) return false;
 
         AttemptResult that = (AttemptResult) o;
-        return wasSuccessful == that.wasSuccessful && status == that.status && exceptionMessage.equals(that.exceptionMessage) && datetime.equals(that.datetime);
+        return datetime.equals(that.datetime);
     }
 
     @Override
