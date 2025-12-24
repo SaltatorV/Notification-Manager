@@ -16,7 +16,7 @@ public class AttemptResult {
     }
 
     public static AttemptResult createForSuccess() {
-        return new AttemptResult(AttemptStatus.SUCCESS, true, null, LocalDateTime.now());
+        return new AttemptResult(AttemptStatus.SUCCESS, true, "", LocalDateTime.now());
     }
 
     public static AttemptResult createForFailure(String exceptionMessage) {
