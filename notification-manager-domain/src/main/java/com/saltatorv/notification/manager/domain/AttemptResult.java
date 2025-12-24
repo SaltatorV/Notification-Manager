@@ -38,4 +38,21 @@ public class AttemptResult {
     public LocalDateTime getDatetime() {
         return datetime;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AttemptResult that = (AttemptResult) o;
+        return wasSuccessful == that.wasSuccessful && attemptStatus == that.attemptStatus && exceptionMessage.equals(that.exceptionMessage) && datetime.equals(that.datetime);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = attemptStatus.hashCode();
+        result = 31 * result + Boolean.hashCode(wasSuccessful);
+        result = 31 * result + exceptionMessage.hashCode();
+        result = 31 * result + datetime.hashCode();
+        return result;
+    }
 }
