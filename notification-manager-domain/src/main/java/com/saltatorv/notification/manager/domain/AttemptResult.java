@@ -3,13 +3,13 @@ package com.saltatorv.notification.manager.domain;
 import java.time.LocalDateTime;
 
 public class AttemptResult {
-    private final AttemptStatus attemptStatus;
+    private final AttemptStatus status;
     private final boolean wasSuccessful;
     private final String exceptionMessage;
     private final LocalDateTime datetime;
 
-    private AttemptResult(AttemptStatus attemptStatus, boolean wasSuccessful, String exceptionMessage, LocalDateTime datetime) {
-        this.attemptStatus = attemptStatus;
+    private AttemptResult(AttemptStatus status, boolean wasSuccessful, String exceptionMessage, LocalDateTime datetime) {
+        this.status = status;
         this.wasSuccessful = wasSuccessful;
         this.exceptionMessage = exceptionMessage;
         this.datetime = datetime;
@@ -23,8 +23,8 @@ public class AttemptResult {
         return new AttemptResult(AttemptStatus.FAILED, false, exceptionMessage, LocalDateTime.now());
     }
 
-    public AttemptStatus getAttemptStatus() {
-        return attemptStatus;
+    public AttemptStatus getStatus() {
+        return status;
     }
 
     public boolean isWasSuccessful() {
@@ -44,12 +44,12 @@ public class AttemptResult {
         if (o == null || getClass() != o.getClass()) return false;
 
         AttemptResult that = (AttemptResult) o;
-        return wasSuccessful == that.wasSuccessful && attemptStatus == that.attemptStatus && exceptionMessage.equals(that.exceptionMessage) && datetime.equals(that.datetime);
+        return wasSuccessful == that.wasSuccessful && status == that.status && exceptionMessage.equals(that.exceptionMessage) && datetime.equals(that.datetime);
     }
 
     @Override
     public int hashCode() {
-        int result = attemptStatus.hashCode();
+        int result = status.hashCode();
         result = 31 * result + Boolean.hashCode(wasSuccessful);
         result = 31 * result + exceptionMessage.hashCode();
         result = 31 * result + datetime.hashCode();
