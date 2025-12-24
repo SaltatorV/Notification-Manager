@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain.system;
 
+import com.saltatorv.notification.manager.domain.AttemptResult;
 import com.saltatorv.notification.manager.domain.Channel;
 
 public class SystemChannel extends Channel {
@@ -12,7 +13,9 @@ public class SystemChannel extends Channel {
     }
 
     @Override
-    public void send() {
+    public AttemptResult send() {
         System.out.println("Sending System notification to " + recipient + ": " + message);
+
+        return AttemptResult.createForSuccess();
     }
 }

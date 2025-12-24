@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain.sms;
 
+import com.saltatorv.notification.manager.domain.AttemptResult;
 import com.saltatorv.notification.manager.domain.Channel;
 
 public class SMSChannel extends Channel {
@@ -12,7 +13,9 @@ public class SMSChannel extends Channel {
     }
 
     @Override
-    public void send() {
+    public AttemptResult send() {
         System.out.println("Sending SMS to " + recipient + ": " + message);
+
+        return AttemptResult.createForSuccess();
     }
 }

@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain.email;
 
+import com.saltatorv.notification.manager.domain.AttemptResult;
 import com.saltatorv.notification.manager.domain.Channel;
 
 public class EmailChannel extends Channel {
@@ -14,7 +15,9 @@ public class EmailChannel extends Channel {
     }
 
     @Override
-    public void send() {
+    public AttemptResult send() {
         System.out.println("Sending Email to " + recipient + ": " + subject + ": " + body);
+
+        return AttemptResult.createForSuccess();
     }
 }
