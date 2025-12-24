@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DeliveryAttemptTest {
 
     DeliveryAttempt attempt;
+    AttemptResult attemptResult;
 
     @Test
     public void testShouldRegisterSuccessfulAttempt() {
@@ -139,6 +140,80 @@ class DeliveryAttemptTest {
         assertNull(attempt);
     }
 
+    @Test
+    public void testShouldThrowExceptionWhenTryGetLatestAttemptResultWhenThereIsNotAnyAttempt() {
+        //given
+        createDeliveryAttempt(3);
+
+        //when
+        assertThrows(RuntimeException.class, this::getLatestAttemptResult);
+
+        //then
+        assertNull(attemptResult);
+    }
+
+    @Test
+    public void testShouldReturnLatestSuccessfulAttemptResult() {
+        //given
+        createDeliveryAttempt(3);
+        registerSuccessfulAttempt();
+
+        //when
+        getLatestAttemptResult();
+
+        //then
+        assertAttemptResultWasSuccessful();
+    }
+
+    @Test
+    public void testShouldReturnLatestFailedAttemptResult() {
+        //given
+        var error = "Error...";
+        createDeliveryAttempt(3);
+        registerFailedAttempt(error);
+
+        //when
+        getLatestAttemptResult();
+
+        //then
+        assertAttemptResultWasFailed(error);
+    }
+
+    @Test
+    public void testShouldReturnLatestAttemptResultWhenThereIsFewOfAttempts() {
+        //given
+        createDeliveryAttempt(3);
+        registerFailedAttempt();
+        waitSomeTime();
+        registerFailedAttempt();
+        waitSomeTime();
+        registerSuccessfulAttempt();
+
+        //when
+        getLatestAttemptResult();
+
+        //then
+        assertAttemptResultWasSuccessful();
+    }
+
+    @Test
+    public void testShouldReturnLatestFailedAttemptResultWhenThereIsOnlyFailedAttempts() {
+        //given
+        createDeliveryAttempt(3);
+        registerFailedAttempt("Error-1");
+        waitSomeTime();
+        registerFailedAttempt("Error-2");
+        waitSomeTime();
+        registerFailedAttempt("Error-3");
+
+        //when
+        getLatestAttemptResult();
+
+        //then
+        assertAttemptResultWasFailed("Error-3");
+    }
+
+
     private void createDeliveryAttempt(int maxAttemptsCounter) {
         attempt = new DeliveryAttempt(maxAttemptsCounter);
     }
@@ -149,6 +224,14 @@ class DeliveryAttemptTest {
 
     private void registerFailedAttempt() {
         attempt.registerAttempt(AttemptResult.createForFailure("Fail"));
+    }
+
+    private void registerFailedAttempt(String error) {
+        attempt.registerAttempt(AttemptResult.createForFailure(error));
+    }
+
+    private void getLatestAttemptResult() {
+        attemptResult = attempt.getLatestAttemptResult();
     }
 
     private void waitSomeTime() {
@@ -172,6 +255,16 @@ class DeliveryAttemptTest {
 
     private void assertDeliveryWasFailed() {
         assertFalse(attempt.wasSuccessful());
+    }
+
+    private void assertAttemptResultWasSuccessful() {
+        assertTrue(attemptResult.isWasSuccessful());
+        assertTrue(attemptResult.getExceptionMessage().isEmpty());
+    }
+
+    private void assertAttemptResultWasFailed(String error) {
+        assertFalse(attemptResult.isWasSuccessful());
+        assertEquals(error, attemptResult.getExceptionMessage());
     }
 
 }

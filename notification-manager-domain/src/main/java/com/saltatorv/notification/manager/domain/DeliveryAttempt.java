@@ -1,5 +1,6 @@
 package com.saltatorv.notification.manager.domain;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,13 +30,22 @@ public class DeliveryAttempt {
         if (attemptResults.contains(attemptResult)) {
             throw new RuntimeException("Attempt has already been registered.");
         }
-
         attemptResults.add(attemptResult);
     }
 
     public boolean wasSuccessful() {
         return attemptResults.stream()
                 .anyMatch(attempt -> attempt.getStatus() == AttemptStatus.SUCCESS);
+    }
+
+    public AttemptResult getLatestAttemptResult() {
+
+        if (attemptResults.isEmpty()) {
+            throw new RuntimeException("No attempts have been registered.");
+        }
+
+        return attemptResults.stream()
+                .max(Comparator.comparing(AttemptResult::getDatetime)).get();
     }
 
     private boolean canAttempt() {
