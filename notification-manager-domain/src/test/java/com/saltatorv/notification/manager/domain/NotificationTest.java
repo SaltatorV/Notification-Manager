@@ -16,6 +16,7 @@ class NotificationTest {
                 .forSms()
                 .recipient("+48123456789")
                 .message("Sample message")
+                .maxDeliveryAttempts(1)
                 .create();
 
         // when
@@ -33,6 +34,7 @@ class NotificationTest {
                 .recipient("example@example.com")
                 .subject("Test")
                 .body("Test body")
+                .maxDeliveryAttempts(1)
                 .create();
 
         // when
@@ -49,6 +51,7 @@ class NotificationTest {
                 .forSystem()
                 .recipient("example@example.com")
                 .message("Sample message")
+                .maxDeliveryAttempts(1)
                 .create();
 
         // when

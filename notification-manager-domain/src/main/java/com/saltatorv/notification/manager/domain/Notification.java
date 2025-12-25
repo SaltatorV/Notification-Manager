@@ -3,22 +3,23 @@ package com.saltatorv.notification.manager.domain;
 public class Notification {
     private final NotificationId id;
     private final Channel channel;
+    private final DeliveryAttempt deliveryAttempt;
 
-    private boolean isSent;
 
-    public Notification(Channel channel) {
+    public Notification(Channel channel, DeliveryAttempt deliveryAttempt) {
         this.id = NotificationId.generate();
+        this.deliveryAttempt = deliveryAttempt;
         this.channel = channel;
-
-        this.isSent = false;
     }
 
     public void send() {
-        channel.send();
-        this.isSent = true;
+        if (deliveryAttempt.hasRemainingSendAttempts()) {
+            AttemptResult attemptResult = channel.send();
+            deliveryAttempt.registerAttempt(attemptResult);
+        }
     }
 
     public boolean isSent() {
-        return isSent;
+        return deliveryAttempt.wasSuccessful();
     }
 }
