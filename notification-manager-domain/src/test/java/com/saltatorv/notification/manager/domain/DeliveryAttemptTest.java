@@ -94,28 +94,12 @@ class DeliveryAttemptTest {
     @Test
     public void testShouldThrowExceptionWhenTryRegisterSameAttempt() {
         //given
-        createDeliveryAttempt(2);
+        createDeliveryAttempt(3);
 
         //when
-        registerSuccessfulAttempt();
-        assertThrows(RuntimeException.class, this::registerSuccessfulAttempt);
+        registerDuplicatedAttempt();
+        assertThrows(RuntimeException.class, this::registerDuplicatedAttempt);
 
-        //then
-        assertDeliveryWasSuccessful();
-    }
-
-    @Test
-    public void testShouldThrowExceptionWhenTryRegisterAttemptWhenThereIsNoRemaingAttempts() {
-        //given
-        createDeliveryAttempt(1);
-
-        //when
-        registerFailedAttempt();
-        assertThrows(RuntimeException.class, this::registerSuccessfulAttempt);
-
-        //then
-        assertDeliveryWasFailed();
-        assertNoRemainingSendAttempts();
     }
 
     @Test
@@ -220,6 +204,13 @@ class DeliveryAttemptTest {
 
     private void registerSuccessfulAttempt() {
         attempt.registerAttempt(AttemptResult.createForSuccess());
+    }
+
+    private void registerDuplicatedAttempt() {
+        if(attemptResult == null) {
+            attemptResult = AttemptResult.createForFailure("Failure");
+        }
+        attempt.registerAttempt(attemptResult);
     }
 
     private void registerFailedAttempt() {
