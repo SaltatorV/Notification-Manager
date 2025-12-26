@@ -16,6 +16,7 @@ public class NotificationSentEvent implements DomainEvent {
         this.occurredOn = occurredOn;
     }
 
+    @Generated
     @Override
     public DomainEventId getDomainEventId() {
         return null;

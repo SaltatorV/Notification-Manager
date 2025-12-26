@@ -18,6 +18,7 @@ public class NotificationSendFailureEvent implements DomainEvent {
         this.reason = reason;
     }
 
+    @Generated
     @Override
     public DomainEventId getDomainEventId() {
         return null;
