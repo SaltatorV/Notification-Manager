@@ -13,6 +13,7 @@ class NotificationId {
         return new NotificationId();
     }
 
+    @Generated
     public String getId() {
         return id;
     }
