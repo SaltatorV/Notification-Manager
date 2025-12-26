@@ -11,6 +11,7 @@ public class DomainEventId {
         this.id = UUID.randomUUID().toString();
     }
 
+    @Generated
     public static DomainEventId generate() {
         return new DomainEventId();
     }
