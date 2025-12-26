@@ -40,7 +40,7 @@ public class EmailNotificationBuilder implements EmailNotificationRecipientStep,
     @Override
     public Notification create() {
         Channel channel = new EmailChannel(recipient, subject, body);
-        return new Notification(channel, new DeliveryAttempt(maxAttemptsCounter));
+        return Notification.create(channel, new DeliveryAttempt(maxAttemptsCounter));
     }
 
 

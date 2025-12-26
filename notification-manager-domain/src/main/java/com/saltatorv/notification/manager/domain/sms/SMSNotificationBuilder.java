@@ -34,6 +34,6 @@ public class SMSNotificationBuilder implements SMSNotificationRecipientStep, SMS
     @Override
     public Notification create() {
         Channel channel = new SMSChannel(recipient, message);
-        return new Notification(channel, new DeliveryAttempt(maxAttemptsCounter));
+        return Notification.create(channel, new DeliveryAttempt(maxAttemptsCounter));
     }
 }

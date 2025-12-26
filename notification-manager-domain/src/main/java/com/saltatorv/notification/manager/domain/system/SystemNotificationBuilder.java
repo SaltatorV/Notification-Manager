@@ -33,7 +33,7 @@ public class SystemNotificationBuilder implements SystemNotificationRecipientSte
     public Notification create() {
 
         Channel channel = new SystemChannel(recipient, message);
-        return new Notification(channel, new DeliveryAttempt(maxAttemptsCounter));
+        return Notification.create(channel, new DeliveryAttempt(maxAttemptsCounter));
     }
 
 
