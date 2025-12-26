@@ -2,7 +2,7 @@ package com.saltatorv.notification.manager.domain;
 
 import java.util.UUID;
 
-class NotificationId {
+public class NotificationId {
     private final String id;
 
     private NotificationId() {
