@@ -9,11 +9,13 @@ public class NotificationSendFailureEvent implements DomainEvent {
     private final DomainEventId domainEventId;
     private final NotificationId notificationId;
     private final Instant occurredOn;
+    private final String reason;
 
-    public NotificationSendFailureEvent(NotificationId notificationId, Instant occurredOn) {
+    public NotificationSendFailureEvent(NotificationId notificationId, Instant occurredOn, String reason) {
         this.domainEventId = DomainEventId.generate();
         this.notificationId = notificationId;
         this.occurredOn = occurredOn;
+        this.reason = reason;
     }
 
     @Override
@@ -30,5 +32,10 @@ public class NotificationSendFailureEvent implements DomainEvent {
     @Override
     public Instant getOccurredOn() {
         return occurredOn;
+    }
+
+    @Generated
+    public String getReason() {
+        return reason;
     }
 }
