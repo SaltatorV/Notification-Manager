@@ -146,7 +146,7 @@ class DeliveryAttemptTest {
         getLatestAttemptResult();
 
         //then
-        assertAttemptResultWasSuccessful();
+        assertDeliveryAttemptWasSuccessful();
     }
 
     @Test
@@ -177,7 +177,7 @@ class DeliveryAttemptTest {
         getLatestAttemptResult();
 
         //then
-        assertAttemptResultWasSuccessful();
+        assertDeliveryAttemptWasSuccessful();
     }
 
     @Test
@@ -248,13 +248,12 @@ class DeliveryAttemptTest {
         assertFalse(attempt.wasSuccessful());
     }
 
-    private void assertAttemptResultWasSuccessful() {
-        assertTrue(attemptResult.isWasSuccessful());
+    private void assertDeliveryAttemptWasSuccessful() {
+        assertTrue(attempt.wasSuccessful());
         assertTrue(attemptResult.getExceptionMessage().isEmpty());
     }
 
     private void assertAttemptResultWasFailed(String error) {
-        assertFalse(attemptResult.isWasSuccessful());
         assertEquals(error, attemptResult.getExceptionMessage());
     }
 

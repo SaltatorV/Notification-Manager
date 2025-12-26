@@ -29,10 +29,6 @@ public class AttemptResult {
         return status;
     }
 
-    public boolean isWasSuccessful() {
-        return wasSuccessful;
-    }
-
     public String getExceptionMessage() {
         return exceptionMessage;
     }
