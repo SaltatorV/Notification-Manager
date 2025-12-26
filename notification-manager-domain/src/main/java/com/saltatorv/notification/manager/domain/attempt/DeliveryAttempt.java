@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain;
+package com.saltatorv.notification.manager.domain.attempt;
 
 import java.util.Comparator;
 import java.util.HashSet;

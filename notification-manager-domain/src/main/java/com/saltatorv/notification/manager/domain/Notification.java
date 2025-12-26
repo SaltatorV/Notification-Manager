@@ -1,5 +1,9 @@
 package com.saltatorv.notification.manager.domain;
 
+import com.saltatorv.notification.manager.domain.attempt.AttemptResult;
+import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.attempt.DeliveryAttempt;
+
 public class Notification {
     private final NotificationId id;
     private final Channel channel;

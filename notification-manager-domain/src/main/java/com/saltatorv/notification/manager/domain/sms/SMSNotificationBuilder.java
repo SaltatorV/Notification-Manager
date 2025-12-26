@@ -1,7 +1,7 @@
 package com.saltatorv.notification.manager.domain.sms;
 
-import com.saltatorv.notification.manager.domain.Channel;
-import com.saltatorv.notification.manager.domain.DeliveryAttempt;
+import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.attempt.DeliveryAttempt;
 import com.saltatorv.notification.manager.domain.Notification;
 import com.saltatorv.notification.manager.domain.shared.NotificationDeliveryAttemptStep;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;

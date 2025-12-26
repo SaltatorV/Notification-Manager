@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain;
+package com.saltatorv.notification.manager.domain.attempt;
 
 public enum AttemptStatus {
     PENDING,

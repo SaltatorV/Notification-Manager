@@ -1,4 +1,6 @@
-package com.saltatorv.notification.manager.domain;
+package com.saltatorv.notification.manager.domain.attempt;
+
+import com.saltatorv.notification.manager.domain.Generated;
 
 import java.time.LocalDateTime;
 
