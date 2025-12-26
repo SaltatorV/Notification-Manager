@@ -9,6 +9,7 @@ public class NotificationId {
         this.id = UUID.randomUUID().toString();
     }
 
+    @Generated
     public static NotificationId generate() {
         return new NotificationId();
     }
