@@ -3,6 +3,7 @@ package com.saltatorv.notification.manager.domain;
 import org.junit.jupiter.api.Test;
 
 import static com.saltatorv.notification.manager.domain.NotificationBuilder.buildNotification;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NotificationTest {
@@ -61,11 +62,51 @@ class NotificationTest {
         assertMessageIsSent();
     }
 
-    private void assertMessageIsSent() {
-        assertTrue(notification.isSent());
+    @Test
+    public void testShouldNotSentNotificationWhenThereIsNoAttemptsLeft() {
+        // given
+        notification = buildNotification()
+                .forSystem()
+                .recipient("example@example.com")
+                .message("Sample message")
+                .maxDeliveryAttempts(1)
+                .create();
+
+        // when
+        sendNotification();
+        sendNotification();
+
+        // then
+        assertMessageIsSent();
+    }
+
+    @Test
+    public void testNotificationShouldNotBeSentWhenCreated() {
+        // given
+
+        // when
+        notification = buildNotification()
+                .forSystem()
+                .recipient("example@example.com")
+                .message("Sample message")
+                .maxDeliveryAttempts(1)
+                .create();
+
+        // then
+        assertMessageIsNotSent();
     }
 
     private void sendNotification() {
         notification.send();
     }
+
+    private void assertMessageIsSent() {
+        assertTrue(notification.isSent());
+    }
+
+    private void assertMessageIsNotSent() {
+        assertFalse(notification.isSent());
+    }
+
+
 }
