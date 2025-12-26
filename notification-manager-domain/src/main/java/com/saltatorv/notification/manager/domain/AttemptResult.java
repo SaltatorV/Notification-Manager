@@ -40,6 +40,7 @@ public class AttemptResult {
     }
 
     @Override
+    @Generated
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -48,6 +49,7 @@ public class AttemptResult {
     }
 
     @Override
+    @Generated
     public int hashCode() {
         int result = status.hashCode();
         result = 31 * result + Boolean.hashCode(wasSuccessful);
