@@ -16,8 +16,6 @@ public class EmailChannel extends Channel {
 
     @Override
     public AttemptResult send() {
-        System.out.println("Sending Email to " + recipient + ": " + subject + ": " + body);
-
         return AttemptResult.createForSuccess();
     }
 }

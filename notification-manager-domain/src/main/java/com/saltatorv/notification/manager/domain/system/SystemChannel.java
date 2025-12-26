@@ -14,8 +14,6 @@ public class SystemChannel extends Channel {
 
     @Override
     public AttemptResult send() {
-        System.out.println("Sending System notification to " + recipient + ": " + message);
-
         return AttemptResult.createForSuccess();
     }
 }

@@ -14,8 +14,6 @@ public class SMSChannel extends Channel {
 
     @Override
     public AttemptResult send() {
-        System.out.println("Sending SMS to " + recipient + ": " + message);
-
         return AttemptResult.createForSuccess();
     }
 }
