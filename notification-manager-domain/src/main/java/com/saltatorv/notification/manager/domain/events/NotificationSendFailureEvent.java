@@ -21,7 +21,7 @@ public class NotificationSendFailureEvent implements DomainEvent {
     @Generated
     @Override
     public DomainEventId getDomainEventId() {
-        return null;
+        return domainEventId;
     }
 
     @Generated
