@@ -1,6 +1,7 @@
 package com.saltatorv.notification.manager.domain.attempt;
 
 import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptInvalidMaxAttemptsCounter;
+import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptLimitExceededException;
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -26,7 +27,7 @@ public class DeliveryAttempt {
 
     public void registerAttempt(AttemptResult attemptResult) {
         if (!hasRemainingSendAttempts()) {
-            throw new RuntimeException("Maximum number of attempts reached. Can not send this attempt.");
+            throw new DeliveryAttemptLimitExceededException();
         }
 
         if (attemptResults.contains(attemptResult)) {
