@@ -10,10 +10,15 @@ public class NotificationSentEvent implements DomainEvent {
     private final NotificationId notificationId;
     private final Instant occurredOn;
 
-    public NotificationSentEvent(NotificationId notificationId, Instant occurredOn) {
+    private NotificationSentEvent(NotificationId notificationId, Instant occurredOn) {
         this.domainEventId = DomainEventId.generate();
         this.notificationId = notificationId;
         this.occurredOn = occurredOn;
+    }
+
+    @Generated
+    public static DomainEvent generate(NotificationId id) {
+        return new NotificationSentEvent(id, Instant.now());
     }
 
     @Generated

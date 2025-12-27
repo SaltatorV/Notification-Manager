@@ -11,11 +11,16 @@ public class NotificationSendFailureEvent implements DomainEvent {
     private final Instant occurredOn;
     private final String reason;
 
-    public NotificationSendFailureEvent(NotificationId notificationId, Instant occurredOn, String reason) {
+    private NotificationSendFailureEvent(NotificationId notificationId, Instant occurredOn, String reason) {
         this.domainEventId = DomainEventId.generate();
         this.notificationId = notificationId;
         this.occurredOn = occurredOn;
         this.reason = reason;
+    }
+
+    @Generated
+    public static DomainEvent generate(NotificationId id, String exceptionMessage) {
+        return new  NotificationSendFailureEvent(id, Instant.now(), exceptionMessage);
     }
 
     @Generated

@@ -34,9 +34,9 @@ public class Notification {
             AttemptResult attemptResult = channel.send();
             deliveryAttempt.registerAttempt(attemptResult);
             if (deliveryAttempt.wasSuccessful()) {
-                events.add(new NotificationSentEvent(id, Instant.now()));
+                events.add(NotificationSentEvent.generate(id));
             } else {
-                events.add(new NotificationSendFailureEvent(id, Instant.now(), attemptResult.getExceptionMessage()));
+                events.add(NotificationSendFailureEvent.generate(id, attemptResult.getExceptionMessage()));
             }
         }
     }
