@@ -1,5 +1,7 @@
 package com.saltatorv.notification.manager.domain.attempt;
 
+import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptInvalidMaxAttemptsCounter;
+
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +14,7 @@ public class DeliveryAttempt {
 
     public DeliveryAttempt(int maxAttemptsCounter) {
         if (maxAttemptsCounter < MIN_ATTEMPTS_TO_SEND) {
-            throw new RuntimeException("Max attempts counter must be positive number");
+            throw new DeliveryAttemptInvalidMaxAttemptsCounter();
         }
         this.maxAttemptsCounter = maxAttemptsCounter;
         this.attemptResults = new HashSet<>(maxAttemptsCounter);
