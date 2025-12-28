@@ -1,5 +1,9 @@
 package com.saltatorv.notification.manager.domain.attempt;
 
+import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptLimitExceededException;
+import com.saltatorv.notification.manager.domain.exception.DuplicateDeliveryAttemptResultException;
+import com.saltatorv.notification.manager.domain.exception.InvalidDeliveryAttemptsCountException;
+import com.saltatorv.notification.manager.domain.exception.NoDeliveryAttemptsRegisteredException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -84,7 +88,7 @@ class DeliveryAttemptTest {
         registerFailedAttempt();
 
         //when
-        assertThrows(RuntimeException.class, this::registerSuccessfulAttempt);
+        assertThrows(DeliveryAttemptLimitExceededException.class, this::registerSuccessfulAttempt);
 
         //then
         assertNoRemainingSendAttempts();
@@ -98,7 +102,7 @@ class DeliveryAttemptTest {
 
         //when
         registerDuplicatedAttempt();
-        assertThrows(RuntimeException.class, this::registerDuplicatedAttempt);
+        assertThrows(DuplicateDeliveryAttemptResultException.class, this::registerDuplicatedAttempt);
 
     }
 
@@ -107,7 +111,7 @@ class DeliveryAttemptTest {
         //given
 
         //when
-        assertThrows(RuntimeException.class, () -> createDeliveryAttempt(-1));
+        assertThrows(InvalidDeliveryAttemptsCountException.class, () -> createDeliveryAttempt(-1));
 
         //then
         assertNull(attempt);
@@ -118,7 +122,7 @@ class DeliveryAttemptTest {
         //given
 
         //when
-        assertThrows(RuntimeException.class, () -> createDeliveryAttempt(0));
+        assertThrows(InvalidDeliveryAttemptsCountException.class, () -> createDeliveryAttempt(0));
 
         //then
         assertNull(attempt);
@@ -130,7 +134,7 @@ class DeliveryAttemptTest {
         createDeliveryAttempt(3);
 
         //when
-        assertThrows(RuntimeException.class, this::getLatestAttemptResult);
+        assertThrows(NoDeliveryAttemptsRegisteredException.class, this::getLatestAttemptResult);
 
         //then
         assertNull(attemptResult);
