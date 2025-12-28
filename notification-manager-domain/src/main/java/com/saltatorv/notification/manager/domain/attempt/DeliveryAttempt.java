@@ -3,6 +3,7 @@ package com.saltatorv.notification.manager.domain.attempt;
 import com.saltatorv.notification.manager.domain.exception.InvalidDeliveryAttemptsCountException;
 import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptLimitExceededException;
 import com.saltatorv.notification.manager.domain.exception.DuplicateDeliveryAttemptResultException;
+import com.saltatorv.notification.manager.domain.exception.NoDeliveryAttemptsRegisteredException;
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -45,7 +46,7 @@ public class DeliveryAttempt {
     public AttemptResult getLatestAttemptResult() {
 
         if (attemptResults.isEmpty()) {
-            throw new RuntimeException("No attempts have been registered.");
+            throw new NoDeliveryAttemptsRegisteredException();
         }
 
         return attemptResults.stream()
