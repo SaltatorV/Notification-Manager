@@ -3,9 +3,9 @@ package com.saltatorv.notification.manager.domain;
 import com.saltatorv.notification.manager.domain.attempt.AttemptResult;
 import com.saltatorv.notification.manager.domain.channel.Channel;
 import com.saltatorv.notification.manager.domain.attempt.DeliveryAttempt;
-import com.saltatorv.notification.manager.domain.events.DomainEvent;
-import com.saltatorv.notification.manager.domain.events.NotificationSendFailureEvent;
-import com.saltatorv.notification.manager.domain.events.NotificationSentEvent;
+import com.saltatorv.notification.manager.domain.event.DomainEvent;
+import com.saltatorv.notification.manager.domain.event.NotificationSendFailureEvent;
+import com.saltatorv.notification.manager.domain.event.NotificationSentEvent;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

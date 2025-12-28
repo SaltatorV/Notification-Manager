@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain.events;
+package com.saltatorv.notification.manager.domain.event;
 
 import java.time.Instant;
 
