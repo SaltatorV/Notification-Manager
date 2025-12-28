@@ -1,7 +1,7 @@
 package com.saltatorv.notification.manager.domain;
 
 import com.saltatorv.notification.manager.domain.attempt.AttemptResult;
-import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.channel.Channel;
 import com.saltatorv.notification.manager.domain.attempt.DeliveryAttempt;
 import com.saltatorv.notification.manager.domain.events.DomainEvent;
 import com.saltatorv.notification.manager.domain.events.NotificationSendFailureEvent;

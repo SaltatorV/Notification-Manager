@@ -1,29 +1,35 @@
-package com.saltatorv.notification.manager.domain.sms;
+package com.saltatorv.notification.manager.domain.channel.email;
 
-import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.channel.Channel;
 import com.saltatorv.notification.manager.domain.attempt.DeliveryAttempt;
 import com.saltatorv.notification.manager.domain.Notification;
 import com.saltatorv.notification.manager.domain.shared.NotificationDeliveryAttemptStep;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
-public class SMSNotificationBuilder implements SMSNotificationRecipientStep, SMSNotificationTextMessageStep, NotificationDeliveryAttemptStep, NotificationFinalStep {
+public class EmailNotificationBuilder implements EmailNotificationRecipientStep, EmailNotificationSubjectStep, EmailNotificationBodyStep, NotificationDeliveryAttemptStep, NotificationFinalStep {
 
     private String recipient;
-    private String message;
+    private String subject;
+    private String body;
     private int maxAttemptsCounter;
 
     @Override
-    public SMSNotificationTextMessageStep recipient(String recipient) {
+    public EmailNotificationSubjectStep recipient(String recipient) {
         this.recipient = recipient;
         return this;
     }
 
     @Override
-    public NotificationDeliveryAttemptStep message(String message) {
-        this.message = message;
+    public EmailNotificationBodyStep subject(String subject) {
+        this.subject = subject;
         return this;
     }
 
+    @Override
+    public NotificationDeliveryAttemptStep body(String body) {
+        this.body = body;
+        return this;
+    }
 
     @Override
     public NotificationFinalStep maxDeliveryAttempts(int maxAttemptsCounter) {
@@ -33,7 +39,9 @@ public class SMSNotificationBuilder implements SMSNotificationRecipientStep, SMS
 
     @Override
     public Notification create() {
-        Channel channel = new SMSChannel(recipient, message);
+        Channel channel = new EmailChannel(recipient, subject, body);
         return Notification.create(channel, new DeliveryAttempt(maxAttemptsCounter));
     }
+
+
 }

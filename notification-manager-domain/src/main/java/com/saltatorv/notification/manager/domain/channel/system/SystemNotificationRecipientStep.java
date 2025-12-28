@@ -1,4 +1,4 @@
-package com.saltatorv.notification.manager.domain.system;
+package com.saltatorv.notification.manager.domain.channel.system;
 
 public interface SystemNotificationRecipientStep {
 

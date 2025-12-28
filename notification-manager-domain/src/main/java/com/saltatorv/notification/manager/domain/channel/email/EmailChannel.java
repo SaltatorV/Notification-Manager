@@ -1,7 +1,7 @@
-package com.saltatorv.notification.manager.domain.email;
+package com.saltatorv.notification.manager.domain.channel.email;
 
 import com.saltatorv.notification.manager.domain.attempt.AttemptResult;
-import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.channel.Channel;
 
 public class EmailChannel extends Channel {
     private final String recipient;

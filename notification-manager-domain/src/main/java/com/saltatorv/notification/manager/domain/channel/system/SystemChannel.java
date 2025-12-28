@@ -1,7 +1,7 @@
-package com.saltatorv.notification.manager.domain.system;
+package com.saltatorv.notification.manager.domain.channel.system;
 
 import com.saltatorv.notification.manager.domain.attempt.AttemptResult;
-import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.channel.Channel;
 
 public class SystemChannel extends Channel {
     private final String recipient;

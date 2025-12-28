@@ -1,12 +1,12 @@
 package com.saltatorv.notification.manager.domain;
 
-import com.saltatorv.notification.manager.domain.email.EmailNotificationBuilder;
-import com.saltatorv.notification.manager.domain.email.EmailNotificationRecipientStep;
+import com.saltatorv.notification.manager.domain.channel.email.EmailNotificationBuilder;
+import com.saltatorv.notification.manager.domain.channel.email.EmailNotificationRecipientStep;
 import com.saltatorv.notification.manager.domain.shared.NotificationChannelStep;
-import com.saltatorv.notification.manager.domain.sms.SMSNotificationBuilder;
-import com.saltatorv.notification.manager.domain.sms.SMSNotificationRecipientStep;
-import com.saltatorv.notification.manager.domain.system.SystemNotificationBuilder;
-import com.saltatorv.notification.manager.domain.system.SystemNotificationRecipientStep;
+import com.saltatorv.notification.manager.domain.channel.sms.SMSNotificationBuilder;
+import com.saltatorv.notification.manager.domain.channel.sms.SMSNotificationRecipientStep;
+import com.saltatorv.notification.manager.domain.channel.system.SystemNotificationBuilder;
+import com.saltatorv.notification.manager.domain.channel.system.SystemNotificationRecipientStep;
 
 public class NotificationBuilder implements NotificationChannelStep {
 

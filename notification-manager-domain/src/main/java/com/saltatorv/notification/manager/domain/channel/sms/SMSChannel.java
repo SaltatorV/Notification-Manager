@@ -1,7 +1,7 @@
-package com.saltatorv.notification.manager.domain.sms;
+package com.saltatorv.notification.manager.domain.channel.sms;
 
 import com.saltatorv.notification.manager.domain.attempt.AttemptResult;
-import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.channel.Channel;
 
 public class SMSChannel extends Channel {
     private final String recipient;

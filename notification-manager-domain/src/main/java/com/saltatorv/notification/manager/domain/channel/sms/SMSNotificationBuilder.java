@@ -1,18 +1,19 @@
-package com.saltatorv.notification.manager.domain.system;
+package com.saltatorv.notification.manager.domain.channel.sms;
 
-import com.saltatorv.notification.manager.domain.attempt.Channel;
+import com.saltatorv.notification.manager.domain.channel.Channel;
 import com.saltatorv.notification.manager.domain.attempt.DeliveryAttempt;
 import com.saltatorv.notification.manager.domain.Notification;
 import com.saltatorv.notification.manager.domain.shared.NotificationDeliveryAttemptStep;
 import com.saltatorv.notification.manager.domain.shared.NotificationFinalStep;
 
-public class SystemNotificationBuilder implements SystemNotificationRecipientStep, SystemNotificationMessageStep, NotificationDeliveryAttemptStep, NotificationFinalStep {
+public class SMSNotificationBuilder implements SMSNotificationRecipientStep, SMSNotificationTextMessageStep, NotificationDeliveryAttemptStep, NotificationFinalStep {
+
     private String recipient;
     private String message;
     private int maxAttemptsCounter;
 
     @Override
-    public SystemNotificationMessageStep recipient(String recipient) {
+    public SMSNotificationTextMessageStep recipient(String recipient) {
         this.recipient = recipient;
         return this;
     }
@@ -23,6 +24,7 @@ public class SystemNotificationBuilder implements SystemNotificationRecipientSte
         return this;
     }
 
+
     @Override
     public NotificationFinalStep maxDeliveryAttempts(int maxAttemptsCounter) {
         this.maxAttemptsCounter = maxAttemptsCounter;
@@ -31,10 +33,7 @@ public class SystemNotificationBuilder implements SystemNotificationRecipientSte
 
     @Override
     public Notification create() {
-
-        Channel channel = new SystemChannel(recipient, message);
+        Channel channel = new SMSChannel(recipient, message);
         return Notification.create(channel, new DeliveryAttempt(maxAttemptsCounter));
     }
-
-
 }
