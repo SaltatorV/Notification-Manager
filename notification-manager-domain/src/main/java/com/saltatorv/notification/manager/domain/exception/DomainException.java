@@ -1,6 +1,10 @@
 package com.saltatorv.notification.manager.domain.exception;
 
+import com.saltatorv.notification.manager.domain.Generated;
+
+@Generated
 public abstract class DomainException extends RuntimeException {
+
     public DomainException() {
     }
 
