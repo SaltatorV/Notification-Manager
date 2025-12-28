@@ -1,6 +1,6 @@
 package com.saltatorv.notification.manager.domain.attempt;
 
-import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptInvalidMaxAttemptsCounter;
+import com.saltatorv.notification.manager.domain.exception.InvalidDeliveryAttemptsCountException;
 import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptLimitExceededException;
 import com.saltatorv.notification.manager.domain.exception.DuplicateDeliveryAttemptResultException;
 
@@ -16,7 +16,7 @@ public class DeliveryAttempt {
 
     public DeliveryAttempt(int maxAttemptsCounter) {
         if (maxAttemptsCounter < MIN_ATTEMPTS_TO_SEND) {
-            throw new DeliveryAttemptInvalidMaxAttemptsCounter();
+            throw new InvalidDeliveryAttemptsCountException();
         }
         this.maxAttemptsCounter = maxAttemptsCounter;
         this.attemptResults = new HashSet<>(maxAttemptsCounter);

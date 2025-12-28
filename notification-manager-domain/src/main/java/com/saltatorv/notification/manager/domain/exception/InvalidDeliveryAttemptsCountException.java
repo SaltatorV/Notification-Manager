@@ -1,13 +1,13 @@
 package com.saltatorv.notification.manager.domain.exception;
 
-public class DeliveryAttemptInvalidMaxAttemptsCounter extends DomainException {
+public class InvalidDeliveryAttemptsCountException extends DomainException {
     private final static String MESSAGE = "Max attempts counter must be positive number";
 
-    public DeliveryAttemptInvalidMaxAttemptsCounter() {
+    public InvalidDeliveryAttemptsCountException() {
         super(MESSAGE);
     }
 
-    public DeliveryAttemptInvalidMaxAttemptsCounter(Throwable cause) {
+    public InvalidDeliveryAttemptsCountException(Throwable cause) {
         super(MESSAGE, cause);
     }
 }
