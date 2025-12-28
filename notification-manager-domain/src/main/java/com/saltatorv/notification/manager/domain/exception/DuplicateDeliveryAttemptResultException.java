@@ -1,0 +1,13 @@
+package com.saltatorv.notification.manager.domain.exception;
+
+public class DuplicateDeliveryAttemptResultException extends DomainException {
+    private final static String MESSAGE = "Maximum number of attempts reached. Can not send this attempt.";
+
+    public DuplicateDeliveryAttemptResultException() {
+        super(MESSAGE);
+    }
+
+    public DuplicateDeliveryAttemptResultException(Throwable cause) {
+        super(MESSAGE, cause);
+    }
+}

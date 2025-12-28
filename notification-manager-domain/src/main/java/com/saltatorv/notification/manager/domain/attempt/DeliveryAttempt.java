@@ -2,6 +2,7 @@ package com.saltatorv.notification.manager.domain.attempt;
 
 import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptInvalidMaxAttemptsCounter;
 import com.saltatorv.notification.manager.domain.exception.DeliveryAttemptLimitExceededException;
+import com.saltatorv.notification.manager.domain.exception.DuplicateDeliveryAttemptResultException;
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -31,7 +32,7 @@ public class DeliveryAttempt {
         }
 
         if (attemptResults.contains(attemptResult)) {
-            throw new RuntimeException("Attempt has already been registered.");
+            throw new DuplicateDeliveryAttemptResultException();
         }
         attemptResults.add(attemptResult);
     }
