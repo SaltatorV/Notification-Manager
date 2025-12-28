@@ -1,7 +1,7 @@
 package com.saltatorv.notification.manager.domain.exception;
 
 public class DuplicateDeliveryAttemptResultException extends DomainException {
-    private final static String MESSAGE = "Maximum number of attempts reached. Can not send this attempt.";
+    private final static String MESSAGE = "Attempt has already been registered.";
 
     public DuplicateDeliveryAttemptResultException() {
         super(MESSAGE);
